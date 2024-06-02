@@ -1,0 +1,6 @@
+- 👋 Hi, I’m @saflota
+- 👀 I’m interested in coding
+- 🌱 I’m currently learning python
+- 💞️ I’m looking to be a freelancer
+- 📫 How to reach me rafikrafikoya@gmail.com
+- ⚡ Fun fact: i love pizza
