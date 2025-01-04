@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @saflota
-- 👀 I’m interested in coding
+- 👀 I’m interested in machine learning and web development 
 - 🌱 I’m currently learning python
 - 💞️ I’m looking to be a freelancer
 - 📫 How to reach me rafikrafikoya@gmail.com
