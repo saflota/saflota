@@ -1,4 +1,4 @@
-#this approach isn't well known 
 #so i wanted to share this after i spent some time to find it
-def NOT_bitwise(x):
-    return 2**(x.bit_length())-1-x
+#it would be better as a lambda function
+def bit_flipper(x):
+    return (1<<x.bit_length())-x-bool(x)
