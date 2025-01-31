@@ -1,0 +1,53 @@
+class sparse_table:
+    # a data structure that can find the maximum value in a range in O(1) time complexity
+    # and can append a value in O(log(n)) time complexity
+    # and the first build takes O(n*log(n)) time complexity
+    def __init__(self, l=[]):
+        self.table = [l]
+        k=2
+        var=False
+        while k<=len(l):
+            new=[max(self.table[-1][i:i+k]) for i in range(len(self.table[-1])-k+1)]
+            if new:
+                self.table.append(new)
+            else:
+                break
+            k+=1
+    def query(self, a, b):
+        dif = b - a+1
+        p=(dif).bit_length() -1
+        dif=dif%(2**p)
+        return max(self.table[p][a], self.table[p][a+dif])
+    def append(self,num):
+        self.table[0].append(num)
+        for i in range(1,len(self.table)):
+            self.table[i].append(max(self.table[i-1][len(self.table[i]):]))
+        if len(self.table)<len(self.table[-1])-2:
+            self.table.append([max(self.table[-1])])
+class timeline:
+    #the highest speeds possible at near-O(1) runtime complexity for checking
+    #the interval edges are inclueded!
+    #the init function runs at O(1) at both space and time complexities due to empty initializations
+    #the add function runs at O(n*log n) due to the inefficient updates
+    def __init__(self):
+        self.times=[]
+        self.timelines = []
+        self.table=None
+    # needs higher speed
+    def add(self, time:tuple):
+        if time[1]>len(self.timelines)-1:
+            self.timelines.extend([0] * (time[1] - len(self.timelines)+1))
+        for k in range(time[0],time[1]+1):
+            self.timelines[k] += 1
+        self.times.append(time)
+        self.table = sparse_table(self.timelines)
+    def extend(self,lst:list[tuple]):
+        for time in lst:
+            if time[1]>len(self.timelines)-1:
+                self.timelines.extend([0] * (time[1] - len(self.timelines)+1))
+            for k in range(time[0],time[1]+1):
+                self.timelines[k] += 1
+            self.times.append(time)
+        self.table=sparse_table(self.timelines)
+    def check(self, time):
+        return self.table.query(time[0], time[1])
