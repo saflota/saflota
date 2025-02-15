@@ -1,4 +1,5 @@
 #so i wanted to share this after i spent some time to find it
 #it would be better as a lambda function
+#if you want it to return 1 when the input is 0 make it return return (1<<x.bit_length())-(x+(x is True))
 def bit_flipper(x):
-    return (1<<x.bit_length())-x-bool(x)
+    return (1<<x.bit_length())-(x+1)
