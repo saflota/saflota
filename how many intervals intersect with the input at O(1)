@@ -25,7 +25,7 @@ class sparse_table:
         if len(self.table)<len(self.table[-1])-2:
             self.table.append([max(self.table[-1])])
 class timeline:
-    #the highest speeds possible at near-O(1) runtime complexity for checking
+    #O(1) runtime complexity for checking
     #the interval edges are inclueded!
     #the init function runs at O(1) at both space and time complexities due to empty initializations
     #the add function runs at O(n*log n) due to the inefficient updates
